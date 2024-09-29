@@ -22,7 +22,7 @@
     "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://github.com/RogerDai2026/my-website.git",
+  "homepage": "https://RogerDai2026.github.io/my-website",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
