@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/RogerDai2026/my-website.git/static/css/main.cf69b94e.css",
-    "main.js": "/RogerDai2026/my-website.git/static/js/main.7cc7cf03.js",
-    "static/js/453.195b869a.chunk.js": "/RogerDai2026/my-website.git/static/js/453.195b869a.chunk.js",
-    "index.html": "/RogerDai2026/my-website.git/index.html",
-    "main.cf69b94e.css.map": "/RogerDai2026/my-website.git/static/css/main.cf69b94e.css.map",
-    "main.7cc7cf03.js.map": "/RogerDai2026/my-website.git/static/js/main.7cc7cf03.js.map",
-    "453.195b869a.chunk.js.map": "/RogerDai2026/my-website.git/static/js/453.195b869a.chunk.js.map"
+    "main.css": "/my-website/static/css/main.cf69b94e.css",
+    "main.js": "/my-website/static/js/main.0373cf63.js",
+    "static/js/453.195b869a.chunk.js": "/my-website/static/js/453.195b869a.chunk.js",
+    "index.html": "/my-website/index.html",
+    "main.cf69b94e.css.map": "/my-website/static/css/main.cf69b94e.css.map",
+    "main.0373cf63.js.map": "/my-website/static/js/main.0373cf63.js.map",
+    "453.195b869a.chunk.js.map": "/my-website/static/js/453.195b869a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cf69b94e.css",
-    "static/js/main.7cc7cf03.js"
+    "static/js/main.0373cf63.js"
   ]
 }
