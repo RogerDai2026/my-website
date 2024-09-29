@@ -3,24 +3,25 @@ import BlurFade from "./magicui/blur-fade";
 
 
 const images = [
-  { src: 'image/DSC_4108.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4109.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4110.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4111.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4112.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4113.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4114.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4115.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4116.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4117.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4118.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4119.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4120.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4121.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4122.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4123.jpg', orientation: 'landscape' },
-  { src: 'image/DSC_4124.jpg', orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4108.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4109.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4110.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4111.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4112.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4113.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4114.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4115.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4116.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4117.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4118.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4119.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4120.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4121.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4122.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4123.jpg`, orientation: 'landscape' },
+  { src: `${process.env.PUBLIC_URL}/image/DSC_4124.jpg`, orientation: 'landscape' },
 ];
+
 
 
 

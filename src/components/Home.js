@@ -27,7 +27,7 @@ function Home() {
           </div>
         </div>
         <div className="about-image">
-          <img src="/Qiushi_Dai.jpg" alt="Roger Dai" />
+        <img src={`${process.env.PUBLIC_URL}/Qiushi_Dai.jpg`} alt="Roger Dai" />
         </div>
       </div>
     </section>
