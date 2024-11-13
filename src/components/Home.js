@@ -19,7 +19,7 @@ function Home() {
           <h2>ABOUT</h2>
           <p>
             Hi ! I’m Roger Dai, and I’m currently an undergraduate student at Rice University studying Computer Science and Statistics. 
-            I am passionate about software engineering, data science, and machine learning. Outside of academics, I enjoy photography. Hope you enjoy my portfolio!
+            I am passionate about software engineering, data science, and machine learning. Outside of academics, I enjoy photography.
           </p>
           <div className="social-icons">
             <a href="https://github.com/RogerDai2026"><i className="fab fa-github"></i></a>
