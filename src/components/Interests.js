@@ -18,7 +18,7 @@ function ImageGallery() {
   return (
     <div className="image-gallery" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
       {images.map((image, index) => (
-        <BlurFade key={index} className="image-container" delay={index * 0.4} inView={true}>
+        <BlurFade key={index} className="image-container" delay={index * 0.1} inView={true}>
               <img
                 src={image.src} 
                 alt=""
