@@ -2,7 +2,6 @@ import React from 'react';
 import {
   SiGo,
   SiC,
-  SiCplusplus,
   SiGit,
   SiRedis,
   SiKubernetes,
@@ -22,7 +21,7 @@ import {
 
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di'; // Java icon
-import { FaDatabase, FaExchangeAlt } from 'react-icons/fa'; // Database and Exchange icons
+import { FaExchangeAlt } from 'react-icons/fa'; // Database and Exchange icons
 
 
 

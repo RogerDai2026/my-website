@@ -1,5 +1,4 @@
 import React from 'react';
-import HyperText from "./magicui/hyper-text";
 
 
 function Home() {
