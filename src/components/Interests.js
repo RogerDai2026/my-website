@@ -19,11 +19,11 @@ function ImageGallery() {
     <div className="image-gallery" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
       {images.map((image, index) => (
         <BlurFade key={index} className="image-container" delay={index * 0.4} inView={true}>
-          <img
-            src={image.src} 
-            alt={`Gallery Image ${index + 1}`}
-            className={image.orientation === 'landscape' ? 'landscape' : 'portrait'}
-          />
+              <img
+                src={image.src} 
+                alt=""
+                className={image.orientation === 'landscape' ? 'landscape' : 'portrait'}
+              />
         </BlurFade>
       ))}
     </div>

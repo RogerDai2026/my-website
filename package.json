@@ -22,7 +22,6 @@
     "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
-
   "homepage": "https://RogerDai2026.github.io/my-website",
   "scripts": {
     "start": "react-scripts start",
@@ -51,7 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.1.1"
   }
 }
-
