@@ -87,7 +87,7 @@ main {
 }
 
 .about-text {
-  width: 60%;
+  width: 65%;
 }
 
 .about h2 {
@@ -96,22 +96,25 @@ main {
   font-weight: bold;
   margin-bottom: 30px;
   text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .about p {
   font-size: 1.1rem;
   color: #555;
-  line-height: 1.8;
+  line-height: 1.9;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .about-image {
   width: 270px; /* Define the width of the image container */
   position: relative;
-  top: -80px; /* Move the image slightly upwards */
+  top: -120px; /* Move the image slightly upwards */
 }
 
 .about-image img {
-  width: 100%; /* Ensures the image fills the container width */
+  width: 105%; /* Ensures the image fills the container width */
   height: auto; /* Maintain the aspect ratio */
   border-radius: 10px; /* Optional: Add rounded corners */
 }
@@ -145,23 +148,52 @@ p {
 .contact {
   padding: 20px 50px;
   text-align: left;
-  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .contact h2 {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
+  font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
 }
 
 .contact p {
+  margin-top: -15px;
+  padding: 20px;
   font-size: 1rem;
   color: #555;
 }
+
+
 .home-section {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.home-section h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.home-section h3{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 /* Resume.css */
 
@@ -172,6 +204,27 @@ p {
   background-color: #f5f5f5;   /* Keep the background color */
 }
 
+.resume h2{
+  margin-top: -50px;
+  margin-bottom: auto;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+
+.resume h3{
+  margin-top: 50px;
+  margin-bottom: auto;
+  font-size: 2.0rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+
+
+
 .main-heading {
   text-align: left;            /* Align heading to the left */
   margin-bottom: 40px;
@@ -179,7 +232,6 @@ p {
   font-family: 'Roboto', sans-serif;
   color: #333;                 /* Consistent text color */
 }
-
 /* Cards Container */
 .cards-container {
   display: flex;
@@ -194,82 +246,65 @@ p {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;                 /* Cards take up full width of the container */
-  opacity: 0;                  /* Start hidden */
-  transform: translateY(20px);
-  filter: blur(5px);           /* Start with blur */
-  animation: fadeInUp 0.6s forwards;
+}
+
+.card.is-visible {
+  transform: translateY(0);    /* Move to initial position */
+  opacity: 1;                  /* Fade in */
+  filter: blur();             /* Clear blur */
+}
+
+/* Typography for Card Headers */
+.card h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 2.0rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  font-feature-settings: "aalt";
 }
 
 .card h4 {
-  margin-top: 0;
-  font-size: 1.3rem;           /* Adjust font-size for consistency */
+  margin-top: 10px;
+  font-size: 1.2rem; 
+  font-feature-settings: "aalt";          /* Adjust font-size for consistency */
   color: #333;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card h5 {
+  font-size: 0.9rem;  
+  margin-top: 5px;
+  font-family: cursive;         /* Adjust font-size for consistency */
+  color: #555;
 }
 
 .card ul {
   list-style-type: disc;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .card li {
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
   line-height: 1.6;            /* Match line-height from body */
   font-size: 0.9rem;           /* Match paragraph font-size */
   color: #555;                 /* Slightly lighter text color for content */
 }
 
-/* Animation Keyframes */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);           /* Animate blur to clear */
-  }
+/* Fade In Section Styles */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Staggered Animation Delay */
-.card:nth-child(1) {
-  animation-delay: 0.5s;
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.card:nth-child(2) {
-  animation-delay: 1.0s;
-}
-
-.card:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-.card:nth-child(4) {
-  animation-delay: 1.9s;
-}
-
-.card:nth-child(5) {
-  animation-delay: 2.3s;
-}
-
-.card:nth-child(6) {
-  animation-delay: 2.7s;
-}
-
-.card:nth-child(7) {
-  animation-delay: 3.0s;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .card {
-    padding: 15px;             /* Adjust padding for smaller screens */
-  }
-
-  .card h4 {
-    font-size: 1.5rem;
-  }
-
-  .card li {
-    font-size: 1.2rem;
-  }
-}
 
 /* Interests Section */
 .interests {
@@ -277,9 +312,20 @@ p {
 }
 
 .interests h2 {
+  /* margin-top: -30px; */
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: -70px;
+  margin-bottom: 1px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+}
+
+.interests p{
+  font-size: 1 rem;
+  color: #555;
+  line-height: 1.9;
+  margin-bottom: -10px;
 }
 
 .contact-section {
@@ -313,7 +359,7 @@ p {
   justify-content: center;
   padding: 10px;
   background-color: #f9f9f9;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
@@ -339,7 +385,7 @@ p {
 
 /* Icon Cloud Section */
 .icon-cloud-section {
-  margin: 40px;
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -349,7 +395,7 @@ p {
 .icon-cloud-section canvas {
   width: 100%;
   max-width: 200px; /* Reduce the max-width to make it smaller */
-  height: 300px; /* Maintain the aspect ratio */
+  height: 200px; /* Maintain the aspect ratio */
 }
 
 .inline-h1 {

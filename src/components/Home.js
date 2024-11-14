@@ -6,8 +6,8 @@ function Home() {
     <section id="home" className="home-section">
       <header className="header">
         <div className="hero">
-          <p className="subtitle">Rice University 2026's</p>
-          <h1 className="main-heading">
+          <h3>Rice University 2026's</h3>
+          <h1>
             ROGER DAI 
           </h1>
         </div>

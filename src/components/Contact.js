@@ -5,7 +5,7 @@ function Contact() {
   return (
     <div className="contact">
       <h2>Contact</h2>
-        <li>Email: qd8@rice.edu</li>
+        <p>Email: qd8@rice.edu</p>
     </div>
   );
 }

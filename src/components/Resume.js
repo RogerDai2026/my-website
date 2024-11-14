@@ -25,6 +25,39 @@ import { FaExchangeAlt } from 'react-icons/fa'; // Database and Exchange icons
 
 
 
+function FadeInSection(props) {
+  const [isVisible, setVisible] = React.useState(false);
+  const domRef = React.useRef();
+  
+  React.useEffect(() => {
+    const currentRef = domRef.current; // Make a local copy of domRef.current
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => setVisible(entry.isIntersecting));
+    });
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef); // Use the local copy here
+      }
+    };
+  }, []);
+  
+  return (
+    <div
+      className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
+      ref={domRef}
+    >
+      {props.children}
+    </div>
+  );
+}
+
+
 function Resume() {
   const experiences = [
     // Professional Experiences
@@ -45,33 +78,30 @@ function Resume() {
       ),
     },
     {
+      title: 'Tesla | Service Engineering Intern (Dec 2023 – Feb 2024)',
+      content: (
+        <ul>
+          <li>
+            Automated the deployment of Tesla’s Christmas software update using Linux-based diagnostic tools and Python, reducing deployment time by 7%.
+          </li>
+          <li>
+            Conducted compatibility testing of software for the China market, utilizing Kafka for real-time data streaming and Kubernetes for container orchestration, ensuring 100% compliance and a 10% improvement in system stability.
+          </li>
+        </ul>
+      ),
+    },
+    {
       title: 'Super Resolution Weather Forecasting Model | Undergraduate Research Assistant (July 2024 – Present)',
       content: (
         <ul>
           <li>
-            Collaborated with Professor Ashok Veeraraghavan to develop a model improving regional precipitation data resolution.
+            Collaborated with Yuhao Liu and Professor Ashok Veeraraghavan to enhance a model aimed at improving regional precipitation data resolution.
           </li>
           <li>
             Applied diffusion models to train on low-resolution weather data and generate high-resolution precipitation images using PyTorch and StableSR.
           </li>
           <li>
             Developed a method to merge small images into larger maps, using diffusion models to enhance boundary consistency during backward inference.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: 'Rice Apps | Full Stack Software Engineer (Aug 2024 – Present)',
-      content: (
-        <ul>
-          <li>
-            Collaborated on developing Rice Carpool, a ride-sharing platform for 4,000+ undergraduates, increasing rides created by 25% (260+ rides in the first month).
-          </li>
-          <li>
-            Improved the search feature using React JS and updated GraphQL queries, allowing users to search rides by student ID.
-          </li>
-          <li>
-            Redesigned the user interface to improve mobile-friendliness and simplify navigation, providing a cleaner, more intuitive user experience.
           </li>
         </ul>
       ),
@@ -93,21 +123,23 @@ function Resume() {
       ),
     },
     {
-      title: 'Tesla | Service Engineering Intern (Dec 2023 – Feb 2024)',
+      title: 'Rice Apps | Full Stack Software Engineer (Aug 2024 – Present)',
       content: (
         <ul>
           <li>
-            Automated the deployment of Tesla’s Christmas software update using Linux-based diagnostic tools and Python, reducing deployment time by 7%.
+            Collaborated on developing Rice Carpool, a ride-sharing platform for 4,000+ undergraduates, increasing rides created by 25% (260+ rides in the first month).
           </li>
           <li>
-            Conducted compatibility testing of software for the China market, utilizing Kafka for real-time data streaming and Kubernetes for container orchestration, ensuring 100% compliance and a 10% improvement in system stability.
+            Improved the search feature using React JS and updated GraphQL queries, allowing users to search rides by student ID.
+          </li>
+          <li>
+            Redesigned the user interface to improve mobile-friendliness and simplify navigation, providing a cleaner, more intuitive user experience.
           </li>
         </ul>
       ),
     },
-    // Projects
     {
-      title: 'SkyDB | Backend Software Engineer (Sep 2023 – Present)',
+      title: 'OwlDB | Backend Software Engineer (Sep 2023 – Present)',
       content: (
         <ul>
           <li>
@@ -141,17 +173,20 @@ function Resume() {
   ];
   return (
     <section className="resume">
-       <h2 className="text-xl font-bold my-2">Experiences</h2>
+      <h2>Experiences</h2>
       <div className="cards-container">
         {experiences.map((exp, index) => (
-          <div className="card" key={index}>
-            <h4>{exp.title}</h4>
-            {exp.content}
-          </div>
+          <FadeInSection key={index}>
+            <div className="card">
+              <h4>{exp.title.split('|')[0]}</h4> 
+              <h5>{exp.title.split('|')[1]}</h5>
+              {exp.content}
+            </div>
+          </FadeInSection>
         ))}
       </div>
-      
-      <h2 className="skills-heading">Skills</h2>
+      <h3>Skills</h3>
+
       <div className="skills-cloud">
         <div className="skill-icon">
           <SiPython className="icon" />
