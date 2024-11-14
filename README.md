@@ -1,1 +1,1 @@
-This is the code for my personal website, built through react
+This is my personal website, built through react. Still under modification
