@@ -1,52 +1,55 @@
-import React, { useEffect } from 'react';
-import { Element, scroller } from 'react-scroll';
+// App.js
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Resume from './components/Resume';
 import Interests from './components/Interests';
 import Contact from './components/Contact';
+import ContactForm from './components/ContactForm';
 import './App.css';
 
-
-
+// Create a HomePage component that includes all sections and the auto-scroll
+function HomePage() {
+  // Auto-scroll feature can remain here or be moved into Home component
+  // If you previously moved it here as per previous advice
+  // Make sure to include it here if needed
+  return (
+    <div>
+      <Home />
+      <Resume />
+      <Interests />
+      <Contact />
+    </div>
+  );
+}
 
 function App() {
-  // Auto-scroll feature for the portfolio
-  useEffect(() => {
-    const sections = ["home", "experience", "interests", "contact"];
-    let index = 0;
-    const intervalId = setInterval(() => {
-      scroller.scrollTo(sections[index], {
-        smooth: true,
-        duration: 1000,
-      });
-      index = (index + 1) % sections.length;
-    }, 50000); // Scrolls every 5 seconds
-
-    return () => clearInterval(intervalId); // Cleanup the interval on component unmount
-  }, []);
-
   return (
-    <div className="App">
-      <Navbar />
+    <Router basename="/my-website"> {/* Set the basename to your subdirectory */}
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact-form" element={<ContactForm />} />
+          {/* Add additional routes here if needed */}
+          {/* Optionally, add a 404 Not Found route */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
-      {/* Scrollable sections */}
-      <Element name="home" className="section">
-        <Home />
-      </Element>
-      <Element name="Experience" className="section">
-        <Resume />
-      </Element>
-      <Element name="interests" className="section">
-        <Interests />
-      </Element>
-      <Element name="contact" className="section">
-        <Contact />
-      </Element>
+// Optional: Define a NotFound component for unmatched routes
+function NotFound() {
+  return (
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h2>404 - Page Not Found</h2>
+      <p>The page you are looking for does not exist.</p>
     </div>
   );
 }
 
 export default App;
-
-

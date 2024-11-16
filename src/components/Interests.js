@@ -4,15 +4,22 @@ const images = [
   { src: `${process.env.PUBLIC_URL}/image/DSC_4108.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4109.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4110.jpg`, orientation: 'landscape' },
+];
+
+const images1 = [
   { src: `${process.env.PUBLIC_URL}/image/DSC_4111.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4112.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4113.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4114.jpg`, orientation: 'landscape' },
+];
+
+
+const images2 = [
   { src: `${process.env.PUBLIC_URL}/image/DSC_4115.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4116.jpg`, orientation: 'landscape' },
   { src: `${process.env.PUBLIC_URL}/image/DSC_4117.jpg`, orientation: 'landscape' },
-];
-
+  
+]
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = React.useState(false);
@@ -49,7 +56,7 @@ function FadeInSection(props) {
 
 function ImageGallery() {
   return (
-    <div className="image-gallery" style={{ display: 'flex', flexWrap: 'wrap', gap: '21px' }}>
+    <div className="image-gallery" style={{ display: 'flex', flexWrap: 'wrap', gap: '21px', padding: "16px" }}>
       {images.map((image, index) => (
         <FadeInSection key={index} className="image-container" delay={index * 0.15} inView={true}>
               <img
@@ -59,6 +66,25 @@ function ImageGallery() {
               />
         </FadeInSection>
       ))}
+       {images1.map((image, index) => (
+        <FadeInSection key={index} className="image-container1" delay={index * 0.15} inView={true}>
+              <img
+                src={image.src} 
+                alt=""
+                className={image.orientation === 'landscape' ? 'landscape' : 'portrait'}
+              />
+        </FadeInSection>
+      ))}
+       {images2.map((image, index) => (
+        <FadeInSection key={index} className="image-container" delay={index * 0.15} inView={true}>
+              <img
+                src={image.src} 
+                alt=""
+                className={image.orientation === 'landscape' ? 'landscape' : 'portrait'}
+              />
+        </FadeInSection>
+      ))}
+
     </div>
   );
 }

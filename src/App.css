@@ -296,8 +296,8 @@ p {
 /* Fade In Section Styles */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .fade-in-section.is-visible {
@@ -401,25 +401,29 @@ p {
 .inline-h1 {
   display: inline-block;
 }
+
+
 .image-gallery {
-  display: grid;
-  gap: 100px; /* Wider gap between images */
-  padding: 16px;
+  gap: 21px; /* Wider gap between images */
+
 }
 
 .image-container {
+  position:relative;
+  overflow:scroll;
+}
+
+.image-gallery .image-container1 {
   position: relative;
   overflow: hidden;
+  /* flex-wrap: nowrap; */
+  width:300px;
 }
+
 
 .landscape {
   width: 100%; /* Let the grid control the width */
   height: 290px; /* Fixed height for landscape */
-}
-
-.portrait {
-  width: 100%; /* Let the grid control the width */
-  height: 600px; /* Fixed height for portrait */
 }
 
 .responsive-image {
@@ -438,3 +442,84 @@ p {
   font-size: 3.5rem;
 }
 
+
+
+.contact {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 10px;
+}
+
+.contact button {
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact button:hover {
+  background-color: #ff9900;
+}
+
+
+.contact-form {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.contact-form h2 {
+  margin-bottom: 10px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form button:hover {
+  background-color: #ff9900;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.map {
+  margin-top: 20px;
+}
