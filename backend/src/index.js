@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // CORS Configuration
-const allowedOrigins = ['http://localhost:3000', 'https://your-production-frontend-url.com'];
+const allowedOrigins = ['http://localhost:3000', 'https://rogerdai2026.github.io/my-website/'];
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
