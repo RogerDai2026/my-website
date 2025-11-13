@@ -9,4 +9,4 @@ Railway will auto-deploy this backend when connected to your GitHub repository.
 - PORT=5001 (Railway sets this automatically)
 
 ## Deployment URL:
-Will be provided after Railway deployment
+- my-website-production-e80d.up.railway.app

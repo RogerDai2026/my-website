@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -32,44 +32,37 @@ app.post('/api/contact', async (req, res) => {
 
   // Debug logging
   console.log('Environment variables check:');
-  console.log('EMAIL_SERVICE:', process.env.EMAIL_SERVICE);
-  console.log('EMAIL_USER:', process.env.EMAIL_USER);
+  console.log('SENDGRID_API_KEY exists:', !!process.env.SENDGRID_API_KEY);
   console.log('RECIPIENT_EMAIL:', process.env.RECIPIENT_EMAIL);
-  console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
 
   try {
-    // Nodemailer transporter configuration - try different ports/security
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-      tls: {
-        rejectUnauthorized: false
-      },
-      connectionTimeout: 60000, // 60 seconds
-      greetingTimeout: 30000, // 30 seconds
-      socketTimeout: 60000, // 60 seconds
-    });
+    // Set SendGrid API key
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-    await transporter.sendMail({
-        from: `"${firstName} ${lastName}" <${process.env.EMAIL_USER}>`, // Sender's name and your Gmail address
-        replyTo: email, // Sender's email address
-        to: process.env.RECIPIENT_EMAIL, // Your email address
-        subject: subject, // Subject line
-        text: `You have received a new message from your website contact form:
+    const msg = {
+      to: process.env.RECIPIENT_EMAIL, // Your email address
+      from: process.env.EMAIL_USER, // Must be verified sender in SendGrid
+      replyTo: email, // Sender's email address
+      subject: subject,
+      text: `You have received a new message from your website contact form:
       
-      Name: ${firstName} ${lastName}
-      Email: ${email}
-      Subject: ${subject}
-      
-      Message:
-      ${message}
-      `, // Plain text body
-      });
+Name: ${firstName} ${lastName}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}`,
+      html: `
+        <h3>New Contact Form Message</h3>
+        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `
+    };
+
+    await sgMail.send(msg);
       
     // Success response
     res.status(200).json({ message: 'Message sent successfully!' });
