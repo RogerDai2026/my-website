@@ -1,0 +1,5 @@
+{
+  "nixpacks": {
+    "provider": "node"
+  }
+}
