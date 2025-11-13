@@ -38,13 +38,21 @@ app.post('/api/contact', async (req, res) => {
   console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
 
   try {
-    // Nodemailer transporter configuration
+    // Nodemailer transporter configuration - try different ports/security
     const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE, // e.g., Gmail
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER, // Sender email (from .env)
-        pass: process.env.EMAIL_PASS, // Sender password (from .env)
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000, // 30 seconds
+      socketTimeout: 60000, // 60 seconds
     });
 
     await transporter.sendMail({
@@ -79,6 +87,6 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
