@@ -4,7 +4,7 @@ const config = {
     API_BASE_URL: 'http://localhost:5001'
   },
   production: {
-    API_BASE_URL: 'https://your-railway-url.railway.app' // Update this with your Railway URL
+    API_BASE_URL: 'https://my-website-production-e80d.up.railway.app' // Your Railway URL
   }
 };
 
