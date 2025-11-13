@@ -1,5 +1,6 @@
 // ContactForm.js
 import React, { useState } from 'react';
+import config from '../config';
 
 function ContactForm() {
   // const navigate = useNavigate();
@@ -31,7 +32,7 @@ function ContactForm() {
     setStatus('Submitting...');
   
     try {
-      const response = await fetch('http://localhost:5001/api/contact', {
+      const response = await fetch(`${config.API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +110,7 @@ function ContactForm() {
       {status && <p className="status-message">{status}</p>}
 
       <div className="contact-info">
-        <p>ECE, Rice University</p>
+        <p>Rice University</p>
         <p>6100 Main St.,</p>
         <p>MS-366</p>
         <p>Houston, TX-77025, USA</p>

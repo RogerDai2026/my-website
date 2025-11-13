@@ -60,19 +60,32 @@ function FadeInSection(props) {
 
 function Resume() {
   const experiences = [
-    // Professional Experiences
+    // Professional Experiences (updated to match Qiushi Dai resume)
     {
-      title: 'Bilibili Technology Co. Ltd | Backend Software Developer Intern (May 2024 – Aug 2024)',
+      title: 'Bytedance | Software Development Intern (Jul 2024 – Sep 2024)',
       content: (
         <ul>
           <li>
-            Developed a lottery-draw HTTP interface using Go and Redis with expiring key-value pairs, handling high concurrency for up to 50k users during Bilibili’s 15th anniversary live stream.
+            Collaborated on an AI-driven A/B testing assistant for the Custom Data Platform (CDP), integrating LLM guidance to automate test configuration and decision-making.
           </li>
           <li>
-            Wrote a patent for Bilibili’s scalable IM system under the Kratos microservice framework, supporting asynchronous batch messaging for up to 10 million messages simultaneously.
+            Contributed to a retrieval-augmented generation (RAG) pipeline for the assistant using LangChain, connecting external data sources and leveraging memory modules to store historical test results, reducing hallucinations by 15%.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      title: 'Bilibili Tech | Backend Software Developer Intern (May 2024 – Jul 2024)',
+      content: (
+        <ul>
+          <li>
+            Engineered a high-performance lottery-draw service using Go and Redis, supporting ~50k concurrent users and improving scalability.
           </li>
           <li>
-            Designed a local IM system for chatbot servers using REST APIs, integrating a virtual Linux SQL cluster with automatic failover and read-write separation for improved reliability and performance.
+            Authored a patent for a scalable instant messaging system built on the Kratos microservice framework, enabling efficient processing of large message volumes.
+          </li>
+          <li>
+            Designed and implemented a REST API–driven chat system with an auto-failover Linux SQL cluster within an Agile workflow.
           </li>
         </ul>
       ),
@@ -82,42 +95,10 @@ function Resume() {
       content: (
         <ul>
           <li>
-            Automated the deployment of Tesla’s Christmas software update using Linux-based diagnostic tools and Python, reducing deployment time by 7%.
+            Automated the China-market “Christmas” OTA build and deployment in a Kubernetes-based pipeline, replacing region-specific in-car applications via region flags with unit tests verifying substitutions.
           </li>
           <li>
-            Conducted compatibility testing of software for the China market, utilizing Kafka for real-time data streaming and Kubernetes for container orchestration, ensuring 100% compliance and a 10% improvement in system stability.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: 'Super Resolution Weather Forecasting Model | Undergraduate Research Assistant (July 2024 – Present)',
-      content: (
-        <ul>
-          <li>
-            Collaborated with Yuhao Liu and Professor Ashok Veeraraghavan to enhance a model aimed at improving regional precipitation data resolution.
-          </li>
-          <li>
-            Applied diffusion models to train on low-resolution weather data and generate high-resolution precipitation images using PyTorch and StableSR.
-          </li>
-          <li>
-            Developed a method to merge small images into larger maps, using diffusion models to enhance boundary consistency during backward inference.
-          </li>
-        </ul>
-      ),
-    },
-    {
-      title: 'Algorithm Efficiency in LLMs | Undergraduate Research Assistant (Nov 2023 – July 2024)',
-      content: (
-        <ul>
-          <li>
-            Researched memory-efficient algorithms for fine-tuning LLMs under Professor Ben Hu, co-authoring a follow-up paper proposing a Column Row Sampling (CRS) method for matrix multiplication.
-          </li>
-          <li>
-            Achieved up to 2.7× peak memory reduction with minimal accuracy loss during fine-tuning using the proposed estimator.
-          </li>
-          <li>
-            Replaced general matrix multiplication with CRS in vision transformers, running 50+ experiments to evaluate its effect on image classification.
+            Improved privacy controls by managing sensitive values with Kubernetes Secrets and separating configuration with ConfigMaps, limiting access to production data and removing user identifiers from logs.
           </li>
         </ul>
       ),
@@ -127,45 +108,78 @@ function Resume() {
       content: (
         <ul>
           <li>
-            Collaborated on developing Rice Carpool, a ride-sharing platform for 4,000+ undergraduates, increasing rides created by 25% (260+ rides in the first month).
+            Co-developed BunkMate, a housing search platform for 4,000+ undergraduates using a responsive TypeScript/HTML/CSS frontend and a Node.js/Supabase backend.
           </li>
           <li>
-            Improved the search feature using React JS and updated GraphQL queries, allowing users to search rides by student ID.
+            Implemented search features with auto-filters and map integration, achieving over 90% test coverage for critical flows.
           </li>
           <li>
-            Redesigned the user interface to improve mobile-friendliness and simplify navigation, providing a cleaner, more intuitive user experience.
+            Implemented subscription features with automatic email reminders for favorited listings and expiring rentals.
+          </li>
+        </ul>
+      ),
+    },
+    // Research Experiences
+    {
+      title: 'Monocular Depth Estimation with Event Stream | Undergraduate Research Assistant (Jan 2025 – Present)',
+      content: (
+        <ul>
+          <li>
+            Developed a latent-space diffusion model for depth prediction from sparse event streams; drafting a first-author paper under Prof. Ashok Veeraraghavan.
+          </li>
+          <li>
+            Designed and trained a cross-modal autoencoder that encodes event data and depth maps into a shared latent space using a Mixture-of-Experts framework for efficient compression.
+          </li>
+          <li>
+            Created a high-resolution synthetic event–depth dataset in CARLA to mitigate data scarcity and evaluated models on MVSEC and DSEC benchmarks.
           </li>
         </ul>
       ),
     },
     {
-      title: 'OwlDB | Backend Software Engineer (Sep 2023 – Present)',
+      title: 'Generative Precipitation Downscaling Model | Undergraduate Research Assistant (May 2024 – May 2025)',
       content: (
         <ul>
           <li>
-            Built a NoSQL document database from scratch using Go, implementing RESTful web services for JSON document creation, modification, retrieval, and deletion.
+            Collaborated with Prof. Ashok Veeraraghavan to develop a generative model that improves regional precipitation resolution using diffusion models.
           </li>
           <li>
-            Designed and enforced JSON schema validation for documents, ensuring data consistency with concurrent handling of requests, utilizing Go’s goroutines for efficient parallel processing.
+            Applied diffusion-based methods to generate high-resolution precipitation images from low-resolution inputs and developed techniques to merge small image tiles during backward inference for large-area downscaling.
           </li>
           <li>
-            Implemented authentication, subscription mechanisms with server-sent events, and the visitor pattern for safe document traversal and modification during validation.
+            Paper published in IEEE Transactions on Geoscience and Remote Sensing (TGRS), 2025.
           </li>
         </ul>
       ),
     },
     {
-      title: 'Personal Portfolio | Fullstack Software Engineer (Dec 2023 – Present)',
+      title: 'Column Row Sampling in Vision Transformer | Undergraduate Research Assistant (Nov 2023 – Jul 2024)',
       content: (
         <ul>
           <li>
-            Developing a web application from scratch for hosting future projects and acting as a personal portfolio.
+            Researched memory-efficient fine-tuning algorithms (WTA-CRS) with Prof. Ben Hu and implemented the estimator during the fine-tuning stage.
           </li>
           <li>
-            Learned full-stack web development using React and CSS, integrating Node.js libraries and Magic UI for enhanced interactivity.
+            Ran 50+ experiments applying WTA-CRS as a drop-in replacement for general matrix multiplication in vision transformers, measuring peak memory, throughput, and accuracy.
           </li>
           <li>
-            Designed and implemented UI/UX aspects to improve engagement and user interaction.
+            Demonstrated peak GPU memory savings with minimal accuracy impact and summarized findings to guide model/training configuration choices.
+          </li>
+        </ul>
+      ),
+    },
+        {
+      title: 'OwlDB | Backend Developer (Sep 2023 – Present)',
+      content: (
+        <ul>
+          <li>
+            Built a NoSQL database in Go with a RESTful API and a concurrent skip-list index for efficient searching.
+          </li>
+          <li>
+            Ensured data integrity with JSON Schema validation, atomic conditional writes, JSON Patch support, and goroutine-safe synchronization.
+          </li>
+          <li>
+            Added token-based authentication with expiring tokens and real-time Server-Sent Events subscriptions for documents and collections.
           </li>
         </ul>
       ),
