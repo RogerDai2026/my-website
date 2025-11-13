@@ -30,6 +30,13 @@ app.use(express.json());
 app.post('/api/contact', async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
+  // Debug logging
+  console.log('Environment variables check:');
+  console.log('EMAIL_SERVICE:', process.env.EMAIL_SERVICE);
+  console.log('EMAIL_USER:', process.env.EMAIL_USER);
+  console.log('RECIPIENT_EMAIL:', process.env.RECIPIENT_EMAIL);
+  console.log('EMAIL_PASS exists:', !!process.env.EMAIL_PASS);
+
   try {
     // Nodemailer transporter configuration
     const transporter = nodemailer.createTransport({
@@ -59,9 +66,15 @@ app.post('/api/contact', async (req, res) => {
     // Success response
     res.status(200).json({ message: 'Message sent successfully!' });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Detailed error sending email:', error);
+    console.error('Error code:', error.code);
+    console.error('Error message:', error.message);
     // Error response
-    res.status(500).json({ message: 'Failed to send email' });
+    res.status(500).json({ 
+      message: 'Failed to send email', 
+      error: error.message,
+      code: error.code 
+    });
   }
 });
 
